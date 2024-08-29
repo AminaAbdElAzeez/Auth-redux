@@ -1,16 +1,22 @@
+import React, { useEffect } from "react";
 import styles from "./Toast.module.css";
 
 const Toast = ({ message, onClose }) => {
-  if (!message) return null;
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        onClose();
+      }, 2500);
 
-  return (
+      return () => clearTimeout(timer);
+    }
+  }, [message, onClose]);
+
+  return message ? (
     <div className={styles.toast}>
       <p>{message}</p>
-      <button onClick={onClose} className={styles.toastClose}>
-        X
-      </button>
     </div>
-  );
+  ) : null;
 };
 
 export default Toast;

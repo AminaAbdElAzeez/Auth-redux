@@ -1,58 +1,40 @@
 .toast {
   position: absolute;
-  top: 0px;
+  top: 20px;
   left: 50%;
   width: 90%;
   background-color: #b98c53;
   color: #fff;
-  padding: 17px 12px;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  opacity: 0;
   transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
+  animation: fadeIn 0.5s forwards;
+  -webkit-animation: fadeIn 0.5s forwards;
 }
-.toastClose {
-  border: 2px solid #fff;
-  color: #b98c53;
-  background-color: #fff;
-  font-size: 11px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  transition: background-color 0.5s, color 0.5s;
-  -webkit-transition: background-color 0.5s, color 0.5s;
-  -moz-transition: background-color 0.5s, color 0.5s;
-  -ms-transition: background-color 0.5s, color 0.5s;
-  -o-transition: background-color 0.5s, color 0.5s;
-}
-.toastClose:hover {
-  background-color: #b98c53;
-  color: #fff;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+    -webkit-transform: translateX(-50%) translateY(-10px);
+    -moz-transform: translateX(-50%) translateY(-10px);
+    -ms-transform: translateX(-50%) translateY(-10px);
+    -o-transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 @media screen and (max-width: 430px) {
   .toast {
     font-size: 13px;
     line-height: 1.6;
-    padding: 17px 10px;
-  }
-  .toastClose {
-    padding: 1px 3px;
-    font-size: 10px;
-    right: 5px;
-    top: 5px;
   }
 }
